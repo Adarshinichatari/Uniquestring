@@ -1,5 +1,8 @@
+
+
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 
@@ -37,21 +40,19 @@ public class RandomString {
         int number = reader.nextInt();
         int count = 100;
         if(number >0 && number <230) {
-            FileWriter MyWriter;
-            try {
-                MyWriter = new FileWriter("C:\\Users\\HP\\IdeaProjects\\StringTask\\output1.txt");
 
+
+            try {
+
+                PrintWriter pw = new PrintWriter(new FileWriter("output.txt"));
                 for(int i = 1; i <= number; i++ ) {
 
-                    //System.out.println(randomString
-                           // .getAlphaNumericString(count));
-
-
-                    MyWriter.write(i+"  " + randomString.getAlphaNumericString(count) + "\n");
+                    pw.println(i+"  " + randomString.getAlphaNumericString(count) + "\n");
 
                 }
-                System.out.println("file has been created on given number of lines");
-                MyWriter.close();
+
+                pw.close();
+                System.out.println("lines are created in output file");
             } catch (IOException e) {
 
                 e.printStackTrace();
@@ -69,4 +70,3 @@ public class RandomString {
 
 
 }
-
